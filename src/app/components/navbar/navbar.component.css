@@ -1,0 +1,10 @@
+.navbar {
+  background-color: rgba(127, 255, 212, 0.69);
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+}
+.notifications {
+  background-color: rgba(169, 169, 169, 0.841);
+  border-radius: 300px;
+}
