@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { ItemComponent } from './components/market/item/item.component';
 import { LimitedQuantityPipePipe } from './pipes/limited-quantity-pipe.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LimitedQuantityPipePipe } from './pipes/limited-quantity-pipe.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
