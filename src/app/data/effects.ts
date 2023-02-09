@@ -3,16 +3,16 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 import { ApiItems } from '../services/apis/api-items.service';
-import { LoadMarketItems, LoadMarketItemsSuccess } from './actions';
+import { loadMarketItems, loadMarketItemsSuccess } from './actions';
 
 @Injectable()
-export class Effects {
+export class RootEffects {
   loadMarketItems$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(LoadMarketItems),
+      ofType(loadMarketItems),
       mergeMap(() =>
         this.itemsService.getMarketItems().pipe(
-          map((items) => LoadMarketItemsSuccess({ items })),
+          map((items) => loadMarketItemsSuccess({ items })),
           catchError(() => EMPTY)
         )
       )

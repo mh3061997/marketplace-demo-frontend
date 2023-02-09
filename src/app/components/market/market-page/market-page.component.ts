@@ -16,7 +16,7 @@ export class MarketPageComponent {
     private auth: AuthServiceService,
     private marketFacade: MarketFacade
   ) {
-    this.isUserSeller = auth.isUserSeller();
+    this.isUserSeller = this.auth.isUserSeller();
     this.items$ = this.marketFacade.items$;
   }
 }
