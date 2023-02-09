@@ -1,8 +1,14 @@
 <app-navbar></app-navbar>
 <div class="items-container container-fluid">
   <div class="row">
-    <app-item class="col-sm-3"></app-item>
-    <app-item class="col-sm-3"></app-item>
-    <app-item class="col-sm-3"></app-item>
+    <app-item
+      *ngFor="let item of items"
+      [changeQuantity]="isUserSeller"
+      [name]="item.name"
+      [description]="item.description"
+      [quantity]="item.quantity"
+      [supplierName]="item.supplierName"
+      class="col-sm-3"
+    ></app-item>
   </div>
 </div>

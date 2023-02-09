@@ -17,7 +17,8 @@ export class AuthServiceService {
       .pipe(
         tap((authData) => {
           sessionStorage.setItem('username', authData.username);
-          let tokenStr = authData.tokenType + authData.accessToken;
+          sessionStorage.setItem('role', authData.roles[0]);
+          let tokenStr = authData.tokenType + ' ' + authData.accessToken;
           sessionStorage.setItem('token', tokenStr);
         })
       );
@@ -29,11 +30,9 @@ export class AuthServiceService {
   }
 
   isUserSeller() {
-    let token = sessionStorage.getItem('token')?.substring(7);
-    if (token) {
-      console.log('token', token);
-      let obj = JSON.parse(atob(token.split('.')[1]));
-      return obj.role.authority === 'ADMIN';
+    let role = sessionStorage.getItem('role');
+    if (role) {
+      return role === 'ROLE_SUPPLIER';
     }
     return false;
   }
