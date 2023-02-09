@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './components/login-page/login-page.component';
-import { MarketPageComponent } from './components/market/market-page/market-page.component';
+import { LoginPageComponent } from '../components/login-page/login-page.component';
+import { MarketPageComponent } from '../components/market/market-page/market-page.component';
+import { LoginGuard } from './login-guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
   {
     path: 'market',
     component: MarketPageComponent,
-    // canActivate:LoginGuard
+    canActivate: [LoginGuard],
   },
   {
     path: '**',
