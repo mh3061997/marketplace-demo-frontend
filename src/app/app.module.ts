@@ -8,11 +8,13 @@ import { MarketPageComponent } from './components/market/market-page/market-page
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { ItemComponent } from './components/market/item/item.component';
-import { LimitedQuantityPipePipe } from './pipes/limited-quantity-pipe.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtAuthInterceptorService } from './interceptors/jwt-auth-interceptor.service';
 import { FormsModule } from '@angular/forms';
+import { ApiItems } from './services/apis/api-items.service';
+import { ImplApiItemsService } from './services/apis/impl-api-items.service';
+import { DataModule } from './data/data.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,6 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     NotificationListComponent,
     ItemComponent,
-    LimitedQuantityPipePipe,
   ],
   imports: [
     BrowserModule,
@@ -29,12 +30,17 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     HttpClientModule,
     FormsModule,
+    DataModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtAuthInterceptorService,
       multi: true,
+    },
+    {
+      provide: ApiItems,
+      useClass: ImplApiItemsService,
     },
   ],
   bootstrap: [AppComponent],

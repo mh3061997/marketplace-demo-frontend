@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { MarketFacade } from 'src/app/services/market-facade.service';
+import { Item } from 'src/app/types';
 
 @Component({
   selector: 'app-market-page',
@@ -9,14 +11,12 @@ import { MarketFacade } from 'src/app/services/market-facade.service';
 })
 export class MarketPageComponent {
   isUserSeller: boolean;
-  items: any[] = [];
+  items$: Observable<Item[]>;
   constructor(
     private auth: AuthServiceService,
     private marketFacade: MarketFacade
   ) {
     this.isUserSeller = auth.isUserSeller();
-    this.marketFacade
-      .getMarketItems()
-      .subscribe((items) => (this.items = items));
+    this.items$ = this.marketFacade.items$;
   }
 }
