@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MarketPageComponent } from './components/market/market-page/market-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { ItemComponent } from './components/market/item/item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -21,7 +20,6 @@ import { DataModule } from './data/data.module';
     LoginPageComponent,
     MarketPageComponent,
     NavbarComponent,
-    NotificationListComponent,
     ItemComponent,
   ],
   imports: [
