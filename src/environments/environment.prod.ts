@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiEndPoint: 'http://localhost:8080/',
+  apiEndPoint: 'https://lit-crag-34282.herokuapp.com/',
 };
