@@ -24,6 +24,13 @@ export class AuthServiceService {
       );
   }
 
+  register(username: string, email: string, password: string) {
+    return this.httpClient.post<any>(
+      environment.apiEndPoint + 'auth/register',
+      { username, password, email, role: ['buyer'] }
+    );
+  }
+
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username');
     return user !== null;

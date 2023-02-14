@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { ApiItems } from './services/apis/api-items.service';
 import { ImplApiItemsService } from './services/apis/impl-api-items.service';
 import { DataModule } from './data/data.module';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { DataModule } from './data/data.module';
     MarketPageComponent,
     NavbarComponent,
     ItemComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,
